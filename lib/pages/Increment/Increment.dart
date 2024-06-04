@@ -3,16 +3,16 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_web_dashboard/constants/components.dart';
 
 import 'package:flutter_web_dashboard/helpers/reponsiveness.dart';
-import 'package:flutter_web_dashboard/pages/Employees/components/employees_table.dart';
+import 'package:flutter_web_dashboard/pages/Increment/components/salary_increment_table.dart';
 
-import 'package:flutter_web_dashboard/pages/Employees/components/components.dart';
+import 'package:flutter_web_dashboard/pages/Increment/components/components.dart';
 import 'package:flutter_web_dashboard/pages/overview/widgets/available_drivers_table.dart';
 
 import 'package:get/get.dart';
 
 // ignore: must_be_immutable
-class EmployeesPage extends StatelessWidget {
-  EmployeesPage({super.key});
+class IncrementPage extends StatelessWidget {
+  IncrementPage({super.key});
   TextEditingController searchController = TextEditingController();
   //Scroll sc = Get.put(Scroll());
   ScrollController sc = ScrollController();
@@ -36,7 +36,7 @@ class EmployeesPage extends StatelessWidget {
                     //   weight: FontWeight.bold,
                     // )),
                     child: Text(
-                      'Employees',
+                      'Salary Increment',
                       style: TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
@@ -44,12 +44,16 @@ class EmployeesPage extends StatelessWidget {
                     ))
               ],
             ),
+
             Expanded(
               child: ListView(
                 controller: sc,
                 children: [
                   Actionsbar(searchController, context),
-                    EmployeesTable(),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  IncrementTable(),
                 ],
               ),
             ),
