@@ -98,7 +98,10 @@ Widget Actionsbar(TextEditingController controller, BuildContext context) {
                                 onPressed: () {
                                   Navigator.pop(context);
                                 },
-                                child: Text('Confirm'))
+                                child: Text(
+                                  'Confirm',
+                                  style: TextStyle(color: emerald400),
+                                ))
                           ],
                         ),
                       ),

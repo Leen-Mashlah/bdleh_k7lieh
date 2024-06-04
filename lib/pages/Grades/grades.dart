@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_web_dashboard/constants/components.dart';
+import 'package:flutter_web_dashboard/constants/style.dart';
 
 import 'package:flutter_web_dashboard/helpers/reponsiveness.dart';
 
 import 'package:flutter_web_dashboard/pages/Employees/components/components.dart';
-import 'package:flutter_web_dashboard/pages/Grades/available_drivers_table.dart';
+import 'package:flutter_web_dashboard/pages/Grades/components/grades_table.dart';
 import 'package:flutter_web_dashboard/pages/overview/widgets/available_drivers_table.dart';
 
 import 'package:get/get.dart';
@@ -14,6 +15,8 @@ import 'package:get/get.dart';
 class GradesPage extends StatelessWidget {
   GradesPage({super.key});
   TextEditingController searchController = TextEditingController();
+  TextEditingController gradenameController = TextEditingController();
+  TextEditingController basesalaryController = TextEditingController();
   //Scroll sc = Get.put(Scroll());
   ScrollController sc = ScrollController();
 
@@ -61,14 +64,67 @@ class GradesPage extends StatelessWidget {
           end: 20,
           child: MyFloatButton(
               onTap: () {
-                sc.animateTo(
-                  0.0,
-                  duration: Duration(seconds: 1),
-                  curve: Curves.easeInOut,
-                );
-                ;
+                showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      var screenSize = MediaQuery.of(context).size;
+                      return Dialog(
+                        child: Container(
+                          width: screenSize.width * 0.3, // 80% of screen width
+                          height:
+                              screenSize.height * 0.37, // 50% of screen height
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              children: [
+                                Text(
+                                  'Add Grade',
+                                  style: TextStyle(fontSize: 25),
+                                ),
+                                SizedBox(
+                                  height: 20,
+                                ),
+                                SizedBox(
+                                  child: TextField(
+                                    controller: gradenameController,
+                                    decoration: InputDecoration(
+                                      label: Text(
+                                        'Name of grade :',
+                                      ),
+                                    ),
+                                  ),
+                                  width: screenSize.width * .2,
+                                ),
+                                SizedBox(
+                                  child: TextField(
+                                    controller: basesalaryController,
+                                    decoration: InputDecoration(
+                                      label: Text(
+                                        'Base salary :',
+                                      ),
+                                    ),
+                                  ),
+                                  width: screenSize.width * .2,
+                                ),
+                                SizedBox(
+                                  height: 30,
+                                ),
+                                TextButton(
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                    },
+                                    child: Text(
+                                      'Confirm',
+                                      style: TextStyle(color: emerald300),
+                                    ))
+                              ],
+                            ),
+                          ),
+                        ),
+                      );
+                    });
               },
-              icon: Icons.arrow_upward),
+              icon: Icons.add),
         ),
       ],
     );
