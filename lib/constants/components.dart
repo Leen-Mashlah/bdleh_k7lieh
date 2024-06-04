@@ -62,3 +62,30 @@ Widget MyFloatButton({VoidCallback? onTap, IconData? icon}) {
     ),
   );
 }
+
+class statefull extends StatefulWidget {
+  const statefull({super.key});
+
+  @override
+  State<statefull> createState() => check();
+}
+
+class check extends State<statefull> {
+  bool checked = false;
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Checkbox(
+            activeColor: emerald400,
+            value: checked,
+            onChanged: (value) {
+              setState(() {
+                checked = value!;
+              });
+            }),
+        //Text(text.tr, style: TextStyle(color: Theme.of(context).primaryColor)),
+      ],
+    );
+  }
+}

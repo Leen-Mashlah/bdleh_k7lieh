@@ -5,7 +5,16 @@ import 'package:flutter_web_dashboard/widgets/custom_text.dart';
 
 /// Example without datasource
 class AvailableDriversTable extends StatelessWidget {
-  const AvailableDriversTable({super.key});
+  AvailableDriversTable({super.key});
+  TextEditingController emp_fname_controller =
+      new TextEditingController(text: 'Akai');
+  TextEditingController emp_lname_controller =
+      new TextEditingController(text: 'Uraraka');
+  TextEditingController emp_role_controller =
+      new TextEditingController(text: 'HR');
+  TextEditingController emp_email_controller =
+      new TextEditingController(text: 'umr@gmail.com');
+  //TextEditingController emp_grade_controller = new TextEditingController(text: 'A');
 
   @override
   Widget build(BuildContext context) {
@@ -96,7 +105,8 @@ class AvailableDriversTable extends StatelessWidget {
                         child: CustomText(
                       text: "A",
                     ))),
-                    const DataCell(Center(child: CustomText(text: "Akai"))),
+                    const DataCell(
+                        Center(child: CustomText(text: "Akai Uraraka"))),
                     const DataCell(Center(child: CustomText(text: "HR"))),
                     DataCell(Center(child: CustomText(text: "7.000\$"))),
                     DataCell(Center(
@@ -109,14 +119,148 @@ class AvailableDriversTable extends StatelessWidget {
                       child: Row(
                         children: [
                           IconButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  var screenSize = MediaQuery.of(context).size;
+                                  return Dialog(
+                                    child: Container(
+                                      width: screenSize.width *
+                                          0.3, // 80% of screen width
+                                      height: screenSize.height *
+                                          0.55, // 50% of screen height
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Column(
+                                          children: [
+                                            Text(
+                                              'Edit Employee',
+                                              style: TextStyle(fontSize: 25),
+                                            ),
+                                            SizedBox(
+                                              height: 20,
+                                            ),
+                                            SizedBox(
+                                              child: TextField(
+                                                controller:
+                                                    emp_fname_controller,
+                                                decoration: InputDecoration(
+                                                  label: Text(
+                                                    'First Name',
+                                                  ),
+                                                ),
+                                              ),
+                                              width: screenSize.width * .2,
+                                            ),
+                                            SizedBox(
+                                              child: TextField(
+                                                controller:
+                                                    emp_lname_controller,
+                                                decoration: InputDecoration(
+                                                  label: Text(
+                                                    'Last Name',
+                                                  ),
+                                                ),
+                                              ),
+                                              width: screenSize.width * .2,
+                                            ),
+                                            SizedBox(
+                                              child: TextField(
+                                                controller:
+                                                    emp_email_controller,
+                                                decoration: InputDecoration(
+                                                  label: Text(
+                                                    'Email Address',
+                                                  ),
+                                                ),
+                                              ),
+                                              width: screenSize.width * .2,
+                                            ),
+                                            SizedBox(
+                                              child: TextField(
+                                                controller: emp_role_controller,
+                                                decoration: InputDecoration(
+                                                  label: Text(
+                                                    'Employee Role',
+                                                  ),
+                                                ),
+                                              ),
+                                              width: screenSize.width * .2,
+                                            ),
+                                            SizedBox(
+                                              height: 10,
+                                            ),
+                                            Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.spaceAround,
+                                              children: [
+                                                Text('Employee of the month'),
+                                                Checkbox(
+                                                    activeColor: emerald400,
+                                                    value: true,
+                                                    onChanged: (value) {
+                                                      value = !value!;
+                                                    }),
+                                              ],
+                                            ),
+                                            SizedBox(
+                                              height: 20,
+                                            ),
+                                            TextButton(
+                                                onPressed: () {
+                                                  Navigator.pop(context);
+                                                },
+                                                child: Text('Confirm'))
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  );
+                                },
+                              );
+                            },
                             icon: Icon(Icons.edit_outlined, color: active),
                           ),
                           SizedBox(
                             width: 20,
                           ),
                           IconButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  var screenSize = MediaQuery.of(context).size;
+                                  return Dialog(
+                                    child: Container(
+                                      width: screenSize.width *
+                                          0.25, // 80% of screen width
+                                      height: screenSize.height *
+                                          0.12, // 50% of screen height
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(12.0),
+                                        child: Column(
+                                          children: [
+                                            Text(
+                                              'Are you sure you want to delete this employee?',
+                                              style: TextStyle(fontSize: 15),
+                                            ),
+                                            SizedBox(
+                                              height: 10,
+                                            ),
+                                            TextButton(
+                                                onPressed: () {
+                                                  Navigator.pop(context);
+                                                },
+                                                child: Text('Confirm'))
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  );
+                                },
+                              );
+                            },
                             icon: Icon(Icons.delete_outlined,
                                 color: Colors.redAccent),
                           ),
