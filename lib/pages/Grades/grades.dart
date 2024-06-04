@@ -52,7 +52,7 @@ class GradesPage extends StatelessWidget {
               child: ListView(
                 controller: sc,
                 children: [
-                  const GradesTable(),
+                  GradesTable(),
                 ],
               ),
             ),
