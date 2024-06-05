@@ -42,14 +42,18 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Dashboard',
       theme: ThemeData(
+        primaryColor: emerald300,
+        colorScheme: ColorScheme.fromSeed(seedColor: emerald300),
+        useMaterial3: true,
         scaffoldBackgroundColor: light,
+        dialogBackgroundColor: light,
         textTheme: GoogleFonts.mulishTextTheme(Theme.of(context).textTheme)
             .apply(bodyColor: Colors.black),
         pageTransitionsTheme: const PageTransitionsTheme(builders: {
           TargetPlatform.iOS: FadeUpwardsPageTransitionsBuilder(),
           TargetPlatform.android: FadeUpwardsPageTransitionsBuilder(),
         }),
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.teal,
       ),
       // home: AuthenticationPage(),
     );

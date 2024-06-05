@@ -5,8 +5,8 @@ import 'package:flutter_web_dashboard/constants/style.dart';
 import 'package:flutter_web_dashboard/widgets/custom_text.dart';
 
 /// Example without datasource
-class EmployeesTable extends StatelessWidget {
-  EmployeesTable({super.key});
+class ComplaintsTable extends StatelessWidget {
+  ComplaintsTable({super.key});
   TextEditingController emp_fname_controller =
       new TextEditingController(text: 'Akai');
   TextEditingController emp_lname_controller =

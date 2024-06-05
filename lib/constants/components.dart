@@ -51,7 +51,7 @@ Widget MyFloatButton({VoidCallback? onTap, IconData? icon}) {
         height: 52.0,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
-          color: emerald400,
+          color: dark,
         ),
         child: Icon(
           icon,
@@ -77,7 +77,7 @@ class check extends State<statefull> {
     return Row(
       children: [
         Checkbox(
-            activeColor: emerald400,
+            activeColor: dark,
             value: checked,
             onChanged: (value) {
               setState(() {

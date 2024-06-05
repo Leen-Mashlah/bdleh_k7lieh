@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 
 const light = Color(0xFFF7F8FC);
 const lightGrey = Color(0xFFA4A6B3);
-const dark = Color(0xFF363740);
+//const dark = Color(0xFF363740);
+//const dark = Color(0xff0e3343);
+
 const active = Color.fromARGB(255, 18, 124, 114);
 
 const emerald50 = Color(0xFF35FFFC);
@@ -12,6 +14,8 @@ const emerald300 = Color(0xff21896e);
 const emerald400 = Color(0xff18615a);
 const emerald500 = Color(0xff0e3343);
 const emerald600 = Color(0xff09202a);
+
+const dark = emerald400;
 
 
 

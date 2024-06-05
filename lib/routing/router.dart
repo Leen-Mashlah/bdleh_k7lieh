@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_web_dashboard/pages/Complaints/complaints.dart';
 import 'package:flutter_web_dashboard/pages/Employees/employees.dart';
 import 'package:flutter_web_dashboard/pages/Grades/grades.dart';
 import 'package:flutter_web_dashboard/pages/Increment/Increment.dart';
@@ -15,7 +16,9 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return _getPageRoute(GradesPage());
     case incrementPageRoute:
       return _getPageRoute(IncrementPage());
-    case overviewPageRoute:
+    case complaintsPageRoute:
+      return _getPageRoute(ComplaintsPage());
+    case incrementPageRoute:
       return _getPageRoute(OverviewPage());
     case driversPageRoute:
       return _getPageRoute(DriversPage());

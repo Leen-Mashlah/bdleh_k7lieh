@@ -15,7 +15,7 @@ class SideMenu extends StatelessWidget {
     double width = MediaQuery.of(context).size.width;
 
     return Container(
-      color: light,
+      color: dark,
       child: ListView(
         children: [
           if (ResponsiveWidget.isSmallScreen(context))
@@ -73,7 +73,7 @@ class SideMenu extends StatelessWidget {
             'Manager', textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: 18,
-              color: Colors.black54,
+              color: Colors.white60,
             ),
           ),
           SizedBox(

@@ -54,11 +54,11 @@ class MenuController extends GetxController {
   }
 
   Widget _customIcon(IconData icon, String itemName) {
-    if (isActive(itemName)) return Icon(icon, size: 22, color: dark);
+    if (isActive(itemName)) return Icon(icon, size: 22, color: light);
 
     return Icon(
       icon,
-      color: isHovering(itemName) ? dark : lightGrey,
+      color: isHovering(itemName) ? light : lightGrey,
     );
   }
 }
