@@ -4,8 +4,8 @@ import 'package:flutter_web_dashboard/controllers/menu_controller.dart'
     as menu_controller;
 import 'package:flutter_web_dashboard/controllers/navigation_controller.dart';
 import 'package:flutter_web_dashboard/layout.dart';
-import 'package:flutter_web_dashboard/pages/404/error.dart';
-import 'package:flutter_web_dashboard/pages/authentication/authentication.dart';
+import 'package:flutter_web_dashboard/helpers/pages/404/error.dart';
+import 'package:flutter_web_dashboard/helpers/pages/authentication/authentication.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -49,10 +49,10 @@ class MyApp extends StatelessWidget {
         dialogBackgroundColor: light,
         textTheme: GoogleFonts.mulishTextTheme(Theme.of(context).textTheme)
             .apply(bodyColor: Colors.black),
-        pageTransitionsTheme: const PageTransitionsTheme(builders: {
-          TargetPlatform.iOS: FadeUpwardsPageTransitionsBuilder(),
-          TargetPlatform.android: FadeUpwardsPageTransitionsBuilder(),
-        }),
+        // pageTransitionsTheme: const PageTransitionsTheme(builders: {
+        //   TargetPlatform.iOS: FadeUpwardsPageTransitionsBuilder(),
+        //   TargetPlatform.android: FadeUpwardsPageTransitionsBuilder(),
+        // }),
         primarySwatch: Colors.teal,
       ),
       // home: AuthenticationPage(),

@@ -56,9 +56,12 @@ class SideMenu extends StatelessWidget {
             child: CircleAvatar(
               radius: 20,
               backgroundImage: Image.network(
-                'https://cdn1.iconfinder.com/data/icons/bokbokstars-121-classic-stock-icons-1/512/person-man.png',
+                'assets/images/profile.jpg',
                 height: 70,
                 width: 70,
+              ).image,
+              foregroundImage: Image.network(
+                'https://cdn1.iconfinder.com/data/icons/bokbokstars-121-classic-stock-icons-1/512/person-man.png',
               ).image,
               onBackgroundImageError: (exception, stackTrace) => Image.asset(
                 'assets/images/profile.jpg',
@@ -73,7 +76,7 @@ class SideMenu extends StatelessWidget {
             'Manager', textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: 18,
-              color: Colors.white60,
+              color: Colors.white,
             ),
           ),
           SizedBox(
