@@ -57,6 +57,13 @@ class IncentivesTable extends StatelessWidget {
                     style: TextStyle(color: emerald300),
                   )),
                 ),
+                DataColumn(
+                  label: Center(
+                      child: Text(
+                    'Edit Points',
+                    style: TextStyle(color: emerald300),
+                  )),
+                ),
               ],
               rows: List<DataRow>.generate(
                 50,
@@ -69,6 +76,67 @@ class IncentivesTable extends StatelessWidget {
                     const DataCell(
                         Center(child: CustomText(text: "Akai Uraraka"))),
                     DataCell(Center(child: CustomText(text: "1.500\$"))),
+                    DataCell(
+                      Center(
+                        child: IconButton(
+                          onPressed: () {
+                            showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                var screenSize = MediaQuery.of(context).size;
+                                return Dialog(
+                                  child: Container(
+                                    width: screenSize.width *
+                                        0.5, // 80% of screen width
+                                    height: screenSize.height *
+                                        0.8, // 50% of screen height
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: SingleChildScrollView(
+                                        child: Column(
+                                          children: [
+                                            Text(
+                                              'Edit Points',
+                                              style: TextStyle(fontSize: 25),
+                                            ),
+                                            SizedBox(
+                                              height: 20,
+                                            ),
+                                            ListView.separated(
+                                                physics:
+                                                    BouncingScrollPhysics(),
+                                                shrinkWrap: true,
+                                                itemBuilder:
+                                                    (BuildContext context,
+                                                            int index) =>
+                                                        listItemBuilder(
+                                                            context, index),
+                                                itemCount: 14,
+                                                separatorBuilder: (BuildContext
+                                                            context,
+                                                        int index) =>
+                                                    Padding(
+                                                      padding: const EdgeInsets
+                                                          .symmetric(
+                                                          vertical: 4),
+                                                      child: Container(
+                                                        height: .5,
+                                                        color: Colors.grey[200],
+                                                      ),
+                                                    )),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                );
+                              },
+                            );
+                          },
+                          icon: Icon(Icons.edit_outlined, color: active),
+                        ),
+                      ),
+                    )
                   ],
                 ),
               ),
@@ -76,6 +144,25 @@ class IncentivesTable extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+
+  listItemBuilder(BuildContext context, int index) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        SizedBox(
+          width: 5,
+        ),
+        Text(
+          'Condition 1: Medical break',
+          style: TextStyle(fontSize: 16),
+        ),
+        NumInput(context),
+        SizedBox(
+          width: 5,
+        ),
+      ],
     );
   }
 }

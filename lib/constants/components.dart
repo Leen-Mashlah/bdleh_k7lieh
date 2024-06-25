@@ -89,3 +89,37 @@ class check extends State<statefull> {
     );
   }
 }
+
+Widget NumInput(BuildContext context, {autofocus = false}) {
+  return SizedBox(
+    width: 60,
+    height: 40,
+    child: TextFormField(
+      textAlign: TextAlign.center,
+      style: TextStyle(fontSize: 15),
+      maxLength: 3,
+      maxLines: 1,
+      keyboardType: TextInputType.number,
+      decoration: InputDecoration(
+        contentPadding: EdgeInsets.all(5),
+        counterText: '',
+        enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.grey, width: 1.0),
+            borderRadius: BorderRadius.circular(10.0)),
+        focusedBorder: OutlineInputBorder(
+            borderSide:
+                BorderSide(color: Theme.of(context).primaryColor, width: 1.0),
+            borderRadius: BorderRadius.circular(10.0)),
+        errorBorder: OutlineInputBorder(
+          borderSide: const BorderSide(color: Colors.redAccent, width: 2.0),
+          borderRadius: BorderRadius.circular(10.0),
+        ),
+      ),
+      onEditingComplete: () => nextFocus(context),
+    ),
+  );
+}
+
+void nextFocus(BuildContext context) {
+  FocusScope.of(context).nextFocus();
+}
