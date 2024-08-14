@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_web_dashboard/pages/Complaints/complaints.dart';
-import 'package:flutter_web_dashboard/pages/Conditions/components/conditions_table.dart';
-import 'package:flutter_web_dashboard/pages/Conditions/conditions.dart';
-import 'package:flutter_web_dashboard/pages/Employees/employees.dart';
-import 'package:flutter_web_dashboard/pages/Grades/grades.dart';
-import 'package:flutter_web_dashboard/pages/Increment/Increment.dart';
-import 'package:flutter_web_dashboard/pages/clients/clients.dart';
-import 'package:flutter_web_dashboard/pages/drivers/drivers.dart';
-import 'package:flutter_web_dashboard/pages/overview/overview.dart';
+import 'package:flutter_web_dashboard/helpers/pages/Complaints/complaints.dart';
+import 'package:flutter_web_dashboard/helpers/pages/Conditions/components/conditions_table.dart';
+import 'package:flutter_web_dashboard/helpers/pages/Conditions/conditions.dart';
+import 'package:flutter_web_dashboard/helpers/pages/Employees/employees.dart';
+import 'package:flutter_web_dashboard/helpers/pages/Files/files.dart';
+import 'package:flutter_web_dashboard/helpers/pages/Grades/grades.dart';
+import 'package:flutter_web_dashboard/helpers/pages/Incentives/incentives.dart';
+import 'package:flutter_web_dashboard/helpers/pages/Increment/Increment.dart';
+import 'package:flutter_web_dashboard/helpers/pages/clients/clients.dart';
+import 'package:flutter_web_dashboard/helpers/pages/drivers/drivers.dart';
+import 'package:flutter_web_dashboard/helpers/pages/overview/overview.dart';
 import 'package:flutter_web_dashboard/routing/routes.dart';
 
 Route<dynamic> generateRoute(RouteSettings settings) {
@@ -22,6 +24,10 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return _getPageRoute(ComplaintsPage());
     case conditionsPageRoute:
       return _getPageRoute(ConditionsPage());
+    case incentivePageRoute:
+      return _getPageRoute(IncentivesPage());
+    case filesPageRoute:
+      return _getPageRoute(FilesPage());
     case overviewPageRoute:
       return _getPageRoute(OverviewPage());
     case driversPageRoute:
