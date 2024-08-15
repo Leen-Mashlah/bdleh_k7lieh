@@ -3,6 +3,7 @@ import 'package:flutter_web_dashboard/constants/style.dart';
 import 'package:flutter_web_dashboard/controllers/menu_controller.dart'
     as menu_controller;
 import 'package:flutter_web_dashboard/controllers/navigation_controller.dart';
+import 'package:flutter_web_dashboard/helpers/dio.dart';
 import 'package:flutter_web_dashboard/layout.dart';
 import 'package:flutter_web_dashboard/helpers/pages/404/error.dart';
 import 'package:flutter_web_dashboard/helpers/pages/authentication/authentication.dart';
@@ -12,6 +13,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'routing/routes.dart';
 
 void main() {
+  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  DioHelper.init();
   Get.put(menu_controller.MenuController());
   Get.put(NavigationController());
   runApp(const MyApp());

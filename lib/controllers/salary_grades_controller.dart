@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter_web_dashboard/helpers/CacheHelper.dart';
 import 'package:flutter_web_dashboard/helpers/dio.dart';
 
@@ -18,7 +16,7 @@ class SalaryGradesController extends GetxController {
   }
 
   void create_salary_grade(
-      String letter, String description, Float basic_salary) {
+      String letter, String description, double basic_salary) {
     String token = CacheHelper.get('token');
     DioHelper.postData(
             'grades',
@@ -38,7 +36,7 @@ class SalaryGradesController extends GetxController {
   }
 
   void update_salary_grade(
-      int id, String letter, String description, Float basic_salary) {
+      int id, String letter, String description, double basic_salary) {
     String token = CacheHelper.get('token');
     DioHelper.postData(
             'grades/${id}',

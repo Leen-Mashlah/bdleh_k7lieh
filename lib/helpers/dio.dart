@@ -3,8 +3,7 @@ import 'package:dio/dio.dart';
 class DioHelper {
   static Dio? dio;
   static init() {
-    dio = Dio(
-        BaseOptions(baseUrl: 'https://student.valuxapps.com/api/', headers: {
+    dio = Dio(BaseOptions(baseUrl: 'http://127.0.0.1:8000/api/', headers: {
       'Accept': 'application/json',
     }));
   }
