@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_web_dashboard/constants/components.dart';
+import 'package:flutter_web_dashboard/controllers/employees_controller.dart';
 import 'package:flutter_web_dashboard/helpers/pages/Employees/components/components.dart';
 
 import 'package:flutter_web_dashboard/helpers/reponsiveness.dart';
 import 'package:flutter_web_dashboard/helpers/pages/Employees/components/employees_table.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/instance_manager.dart';
 
 // ignore: must_be_immutable
 class EmployeesPage extends StatelessWidget {
   EmployeesPage({super.key});
+  EmployeesController controller = Get.put(EmployeesController());
   TextEditingController searchController = TextEditingController();
   //Scroll sc = Get.put(Scroll());
   ScrollController sc = ScrollController();
@@ -43,8 +47,8 @@ class EmployeesPage extends StatelessWidget {
               child: ListView(
                 controller: sc,
                 children: [
-                  Actionsbar(searchController, context),
-                  EmployeesTable(),
+                  Actionsbar(controller, context),
+                  EmployeesTable(controller),
                 ],
               ),
             ),

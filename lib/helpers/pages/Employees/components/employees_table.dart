@@ -12,16 +12,14 @@ import 'package:get/get.dart';
 /// Example without datasource
 // ignore: must_be_immutable
 class EmployeesTable extends StatelessWidget {
-  EmployeesTable({super.key});
-  EmployeesController controller = Get.put(EmployeesController());
-  TextEditingController emp_fname_controller =
-      new TextEditingController(text: 'Akai');
-  TextEditingController emp_lname_controller =
-      new TextEditingController(text: 'Uraraka');
-  TextEditingController emp_role_controller =
-      new TextEditingController(text: 'HR');
-  TextEditingController emp_email_controller =
-      new TextEditingController(text: 'umr@gmail.com');
+  late EmployeesController controller;
+  EmployeesTable(EmployeesController controller, {super.key}) {
+    this.controller = controller;
+  }
+  TextEditingController emp_fname_controller = new TextEditingController();
+  TextEditingController emp_lname_controller = new TextEditingController();
+  TextEditingController emp_role_controller = new TextEditingController();
+  TextEditingController emp_email_controller = new TextEditingController();
   //TextEditingController emp_grade_controller = new TextEditingController(text: 'A');
 
   @override
@@ -31,7 +29,7 @@ class EmployeesTable extends StatelessWidget {
     return GetBuilder(
       init: controller,
       builder: (controller) => BuildCondition(
-        condition: true,
+        condition: controller.employeesModel != null,
         fallback: (context) => Center(
           child: CircularProgressIndicator(),
         ),
@@ -115,27 +113,28 @@ class EmployeesTable extends StatelessWidget {
                     ),
                   ],
                   rows: List<DataRow>.generate(
-                    50,
+                    controller.employeesModel!.data.length,
                     (index) => DataRow(
                       cells: [
                         DataCell(Center(
                             child: CustomText(
-                          text: "A",
+                          text: controller.employeesModel!.data[index].letter!,
                         ))),
                         DataCell(Center(
                             child: CustomText(
-                                text: controller
-                                        .employeesModel!.data[0].firstName! +
+                                text: controller.employeesModel!.data[index]
+                                        .firstName! +
                                     ' ' +
-                                    controller
-                                        .employeesModel!.data[0].lastName!))),
+                                    controller.employeesModel!.data[index]
+                                        .lastName!))),
+                        DataCell(Center(
+                            child: CustomText(
+                                text: controller.employeesModel!.data[index]
+                                    .description!))),
                         DataCell(Center(
                             child: CustomText(
                                 text: controller
-                                    .employeesModel!.data[0].description!))),
-                        DataCell(Center(
-                            child: CustomText(
-                                text: controller.employeesModel!.data[0].salary
+                                    .employeesModel!.data[index].salary
                                     .toString()))),
                         DataCell(Center(
                           child: Icon(
@@ -208,35 +207,24 @@ class EmployeesTable extends StatelessWidget {
                                                   width: screenSize.width * .2,
                                                 ),
                                                 SizedBox(
-                                                  child: TextField(
-                                                    controller:
-                                                        emp_role_controller,
-                                                    decoration: InputDecoration(
-                                                      label: Text(
-                                                        'Employee Role',
-                                                      ),
-                                                    ),
-                                                  ),
-                                                  width: screenSize.width * .2,
-                                                ),
-                                                SizedBox(
                                                   height: 10,
-                                                ),
-                                                Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceAround,
-                                                  children: [
-                                                    Text(
-                                                        'Employee of the month'),
-                                                    statefull()
-                                                  ],
                                                 ),
                                                 SizedBox(
                                                   height: 20,
                                                 ),
                                                 TextButton(
                                                     onPressed: () {
+                                                      controller.update_employee(
+                                                          controller
+                                                              .employeesModel!
+                                                              .data[index]
+                                                              .id!,
+                                                          emp_fname_controller
+                                                              .text,
+                                                          emp_lname_controller
+                                                              .text,
+                                                          emp_email_controller
+                                                              .text);
                                                       Navigator.pop(context);
                                                     },
                                                     child: Text(
@@ -284,6 +272,12 @@ class EmployeesTable extends StatelessWidget {
                                                 ),
                                                 TextButton(
                                                     onPressed: () {
+                                                      controller.del_emp(
+                                                        controller
+                                                            .employeesModel!
+                                                            .data[index]
+                                                            .id!,
+                                                      );
                                                       Navigator.pop(context);
                                                     },
                                                     child: Text('Confirm'))

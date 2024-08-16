@@ -9,7 +9,8 @@ class EmployeesController extends GetxController {
   void getemp() {
     DioHelper.getData('employees').then((value) {
       employeesModel = EmployeesModel.fromJson(value?.data);
-      print(employeesModel!.data[1].email);
+      print("my email  = ${employeesModel!.data[1].email}");
+      update();
     }).catchError((error) {
       print('error: ' + error.toString());
     });
@@ -63,19 +64,19 @@ class EmployeesController extends GetxController {
     String lname,
     String email,
   ) {
-    String token = CacheHelper.get('token');
+    print(id.toString() + fname + lname + email);
+    //String token = CacheHelper.get('token');
     DioHelper.postData(
-            'employees/${id}',
-            {
-              'first_name': fname,
-              'last_name': lname,
-              'email': email,
-            },
-            token: token)
-        .then((value) {
-      if (value?.data['status'] == true) {
-        employeesModel = EmployeesModel.fromJson(value?.data);
-      }
+      'employees/${id}',
+      {
+        'first_name': fname,
+        'last_name': lname,
+        'email': email,
+      },
+    ).then((value) {
+      print(value?.data.toString());
+      employeesModel = EmployeesModel.fromJson(value?.data);
+      print(value?.data['message']);
     }).catchError((error) {
       print(error.toString());
     });

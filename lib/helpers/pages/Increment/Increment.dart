@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_web_dashboard/constants/components.dart';
 import 'package:flutter_web_dashboard/constants/style.dart';
+import 'package:flutter_web_dashboard/controllers/salary_increment_controller.dart';
 
 import 'package:flutter_web_dashboard/helpers/reponsiveness.dart';
 import 'package:flutter_web_dashboard/helpers/pages/Increment/components/salary_increment_table.dart';
@@ -14,9 +15,11 @@ import 'package:get/get.dart';
 // ignore: must_be_immutable
 class IncrementPage extends StatelessWidget {
   IncrementPage({super.key});
-  TextEditingController searchController = TextEditingController();
+  TextEditingController incrementController = TextEditingController();
   //Scroll sc = Get.put(Scroll());
   ScrollController sc = ScrollController();
+  List<int> emp_id = [];
+  SalaryIncrementController controller = Get.put(SalaryIncrementController());
 
   @override
   Widget build(BuildContext context) {
@@ -50,16 +53,19 @@ class IncrementPage extends StatelessWidget {
               child: ListView(
                 controller: sc,
                 children: [
-                  Actionsbar(searchController, context),
+                  Actionsbar(incrementController, context),
                   SizedBox(
                     height: 10,
                   ),
-                  IncrementTable(),
+                  IncrementTable(emp_id),
                 ],
               ),
             ),
             InkWell(
-              onTap: () {},
+              onTap: () {
+                controller.create_salary_increment(
+                    emp_id, int.parse(incrementController.text));
+              },
               child: Container(
                   width: 150,
                   height: 50,

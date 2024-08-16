@@ -26,29 +26,30 @@ Widget Actionsbar(TextEditingController controller, BuildContext context) {
 }
 
 class statefull extends StatefulWidget {
-  const statefull({super.key});
+  bool checked = false;
+  statefull(bool value, {super.key}) {
+    checked = value;
+  }
 
   @override
-  State<statefull> createState() => check();
+  State<statefull> createState() => check(checked);
 }
 
 class check extends State<statefull> {
+  check(bool checked) {
+    this.checked = checked;
+  }
   bool checked = false;
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Checkbox(
-            activeColor: emerald400,
-            value: checked,
-            onChanged: (value) {
-              setState(() {
-                checked = value!;
-              });
-            }),
-        //Text(text.tr, style: TextStyle(color: Theme.of(context).primaryColor)),
-      ],
-    );
+    return Checkbox(
+        activeColor: emerald400,
+        value: checked,
+        onChanged: (value) {
+          setState(() {
+            checked = value!;
+          });
+        });
   }
 }
 
