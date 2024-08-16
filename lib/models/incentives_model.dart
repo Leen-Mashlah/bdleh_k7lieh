@@ -1,12 +1,11 @@
 class IncentivesModel {
-  bool? status;
   String? message;
-  Data? data;
+  List<Data> data = [];
 
-  IncentivesModel.fromJson(Map<String, dynamic> response) {
-    status = response['status'];
-    message = response['message'];
-    data = response['data'] != null ? Data.fromJson(response['data']) : null;
+  IncentivesModel.fromJson(Map<String, dynamic> json) {
+    json['data'].forEach((element) {
+      data.add(Data.fromJson(element));
+    });
   }
 }
 
@@ -20,21 +19,13 @@ class Data {
   DateTime? createdAt;
   DateTime? updatedAt;
   Data.fromJson(Map<String, dynamic> json) {
-    id:
-    json['id'];
-    employeeId:
-    json['employee_id'];
-    amount:
-    json['amount'];
-    pointsAmount:
-    json['points_amount'];
-    shareId:
-    json['share_id'];
-    date:
-    json['date'];
-    createdAt:
-    DateTime.parse(json['created_at']);
-    updatedAt:
-    DateTime.parse(json['updated_at']);
+    id = json['id'];
+    employeeId = json['employee_id'];
+    amount = json['amount'];
+    pointsAmount = json['points_amount'];
+    shareId = json['share_id'];
+    date = json['date'];
+    createdAt = DateTime.parse(json['created_at']);
+    updatedAt = DateTime.parse(json['updated_at']);
   }
 }

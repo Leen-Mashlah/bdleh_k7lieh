@@ -6,13 +6,16 @@ import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 
 class IncentiveShareController extends GetxController {
   IncentiveShareModel? incentiveShareModel;
-  void get_incentive() {
-    DioHelper.getData('share', token: CacheHelper.get('token')).then((value) {
+  void get_incentive_share() {
+    DioHelper.getData(
+      'share',
+    ).then((value) {
       incentiveShareModel = IncentiveShareModel.fromJson(value?.data);
-      if (value?.data['status']) {}
+      update();
     }).catchError((error) {
       print(error.toString());
     });
+    update();
   }
 
   void create_incentive_share(

@@ -118,7 +118,7 @@ class EmployeesTable extends StatelessWidget {
                       cells: [
                         DataCell(Center(
                             child: CustomText(
-                          text: "A",
+                          text: controller.employeesModel!.data[index].letter!,
                         ))),
                         DataCell(Center(
                             child: CustomText(

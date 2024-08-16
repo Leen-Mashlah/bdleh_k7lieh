@@ -23,6 +23,7 @@ class Employee {
   String? letter = '';
   String? description = '';
   double? basicSalary = 0;
+
   Employee.fromJson(Map<String, dynamic> json) {
     id = json['id'] ?? 0;
     firstName = json['first_name'] ?? '';

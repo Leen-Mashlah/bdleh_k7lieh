@@ -34,6 +34,8 @@ class MenuController extends GetxController {
         return _customIcon(CupertinoIcons.exclamationmark_bubble, itemName);
       case incentivePageDisplayName:
         return _customIcon(CupertinoIcons.gift, itemName);
+      case incentiveShareDisplayName:
+        return _customIcon(CupertinoIcons.chart_pie_fill, itemName);
       case conditionsPageDisplayName:
         return _customIcon(Icons.format_list_numbered_rounded, itemName);
       case filesPageDisplayName:

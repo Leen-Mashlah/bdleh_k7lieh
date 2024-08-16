@@ -7,20 +7,14 @@ import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 class SalaryIncrementController extends GetxController {
   SalaryIncrementModel? salaryIncrementModel;
 
-  void create_regulations(
-    String name,
-  ) {
+  void create_salary_increment(List<int> employeeIds, int percentage) {
+    final requestBody = {
+      "increments": employeeIds.map((id) => {"employee_id": id}).toList(),
+      "percentage": percentage,
+    };
     String token = CacheHelper.get('token');
-    DioHelper.postData(
-            'increment',
-            {
-              'name': name,
-            },
-            token: token)
-        .then((value) {
-      if (value?.data['status'] == true) {
-        salaryIncrementModel = SalaryIncrementModel.fromJson(value?.data);
-      }
+    DioHelper.postData('increment', requestBody, token: token).then((value) {
+      salaryIncrementModel = SalaryIncrementModel.fromJson(value?.data);
     }).catchError((error) {
       print(error.toString());
     });

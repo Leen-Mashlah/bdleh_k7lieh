@@ -8,33 +8,34 @@ class IncentiveController extends GetxController {
   void getincentive_byyear() {
     DioHelper.getData('incentives/byYear', token: CacheHelper.get('token'))
         .then((value) {
-      if (value?.data['status']) {
-        incentivesModel = IncentivesModel.fromJson(value?.data);
-      }
+      incentivesModel = IncentivesModel.fromJson(value?.data);
+      update();
     }).catchError((error) {
       print(error.toString());
     });
+    update();
   }
 
   void getincentive() {
-    DioHelper.getData('incentives', token: CacheHelper.get('token'))
-        .then((value) {
-      if (value?.data['status']) {
-        incentivesModel = IncentivesModel.fromJson(value?.data);
-      }
+    DioHelper.getData(
+      'incentives',
+    ).then((value) {
+      incentivesModel = IncentivesModel.fromJson(value?.data);
+      update();
     }).catchError((error) {
       print(error.toString());
     });
+    update();
   }
 
-  void updateProfile(String fname, String lname, String phone) {
+  void distribute(String fname, String lname, String phone) {
     String token = CacheHelper.get('token');
     DioHelper.postData('incentives', {}, token: token).then((value) {
-      if (value?.data['status'] == true) {
-        //TODO Handle response to Model
-      }
+      //TODO Handle response
+      update();
     }).catchError((error) {
       print(error.toString());
     });
+    update();
   }
 }

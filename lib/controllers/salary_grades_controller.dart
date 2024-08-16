@@ -9,10 +9,11 @@ class SalaryGradesController extends GetxController {
   void get_salary_grade() {
     DioHelper.getData('grades', token: CacheHelper.get('token')).then((value) {
       salarygradesModel = SalaryGradesModel.fromJson(value?.data);
-      if (value?.data['status']) {}
+      update();
     }).catchError((error) {
       print(error.toString());
     });
+    update();
   }
 
   void create_salary_grade(
@@ -37,19 +38,21 @@ class SalaryGradesController extends GetxController {
 
   void update_salary_grade(
       int id, String letter, String description, double basic_salary) {
-    String token = CacheHelper.get('token');
+    //String token = CacheHelper.get('token');
+    print(id.toString());
+    print(letter);
+    print(description);
+    print(basic_salary.toString());
     DioHelper.postData(
-            'grades/${id}',
-            {
-              'letter': letter,
-              'description': description,
-              'basic_salary': basic_salary
-            },
-            token: token)
-        .then((value) {
-      if (value?.data['status'] == true) {
-        salarygradesModel = SalaryGradesModel.fromJson(value?.data);
-      }
+      'grades/${id}',
+      {
+        'letter': letter,
+        'description': description,
+        'basic_salary': basic_salary
+      },
+    ).then((value) {
+      //salarygradesModel = SalaryGradesModel.fromJson(value?.data);
+      print('success');
     }).catchError((error) {
       print(error.toString());
     });

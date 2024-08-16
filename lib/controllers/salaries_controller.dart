@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter_web_dashboard/helpers/CacheHelper.dart';
 import 'package:flutter_web_dashboard/helpers/dio.dart';
 import 'package:flutter_web_dashboard/models/salaries_model.dart';
