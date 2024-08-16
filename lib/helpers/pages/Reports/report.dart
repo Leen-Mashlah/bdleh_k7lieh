@@ -6,8 +6,8 @@ import 'package:flutter_web_dashboard/helpers/reponsiveness.dart';
 import 'package:flutter_web_dashboard/helpers/pages/Grades/components/grades_table.dart';
 
 // ignore: must_be_immutable
-class IncentivesShare extends StatelessWidget {
-  IncentivesShare({super.key});
+class ReportsScreen extends StatelessWidget {
+  ReportsScreen({super.key});
   TextEditingController searchController = TextEditingController();
   TextEditingController gradenameController = TextEditingController();
   TextEditingController basesalaryController = TextEditingController();
@@ -30,7 +30,7 @@ class IncentivesShare extends StatelessWidget {
                 //   weight: FontWeight.bold,
                 // )),
                 child: Text(
-                  'Incentives Share',
+                  'Reports',
                   style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,

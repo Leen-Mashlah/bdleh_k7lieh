@@ -20,7 +20,7 @@ class IncentivesShareTable extends StatelessWidget {
   TextEditingController basesalaryontroller = new TextEditingController();
   @override
   Widget build(BuildContext context) {
-    controller.get_incentive();
+    controller.get_incentive_share();
     return GetBuilder(
       init: controller,
       builder: (controller) => BuildCondition(

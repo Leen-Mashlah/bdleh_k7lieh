@@ -10,15 +10,11 @@ class IncentiveShareModel {
 
 class Data {
   String? name;
-  String? amountOfShare;
-  DateTime? updatedAt;
-  DateTime? createdAt;
+  int? amountOfShare;
   int? id;
   Data.fromJson(Map<String, dynamic> json) {
     name = json['name'];
     amountOfShare = json['amount_of_share'];
-    updatedAt = DateTime.parse(json['updated_at']);
-    createdAt = DateTime.parse(json['created_at']);
     id = json['id'];
   }
 }

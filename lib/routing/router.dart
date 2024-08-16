@@ -27,7 +27,7 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return _getPageRoute(ConditionsPage());
     case incentivePageRoute:
       return _getPageRoute(IncentivesPage());
-    case incentivePageRoute:
+    case incentiveShareRoute:
       return _getPageRoute(IncentivesShare());
     case filesPageRoute:
       return _getPageRoute(FilesPage());

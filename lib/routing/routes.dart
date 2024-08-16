@@ -15,7 +15,7 @@ const complaintsPageRoute = "/complaints";
 const incentivePageDisplayName = "Incentive";
 const incentivePageRoute = "/incentive";
 
-const incentiveShareDisplayName = "IncentiveShare";
+const incentiveShareDisplayName = "Incentives Share";
 const incentiveShareRoute = "/incentiveshare";
 
 const conditionsPageDisplayName = "Conditions";
@@ -52,6 +52,7 @@ List<MenuItem> sideMenuItemRoutes = [
   MenuItem(gradesPageDisplayName, gradesPageRoute),
   MenuItem(complaintsPageDisplayName, complaintsPageRoute),
   MenuItem(incentivePageDisplayName, incentivePageRoute),
+  MenuItem(incentiveShareDisplayName, incentiveShareRoute),
   MenuItem(conditionsPageDisplayName, conditionsPageRoute),
   MenuItem(filesPageDisplayName, filesPageRoute),
   MenuItem(aboutPageDisplayName, aboutPageRoute),

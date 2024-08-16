@@ -4,7 +4,6 @@ class ReportsFModel {
   Data? data;
 
   ReportsFModel.fromJson(Map<String, dynamic> response) {
-    status = response['status'];
     message = response['message'];
     data = response['data'] != null ? Data.fromJson(response['data']) : null;
   }
@@ -16,13 +15,9 @@ class Data {
   String? percentage;
   String? employeeName;
   Data.fromJson(Map<String, dynamic> json) {
-    id:
-    json['id'];
-    date:
-    json['date'];
-    percentage:
-    json['percentage'];
-    employeeName:
-    json['employee_name'];
+    id = json['id'];
+    date = json['date'];
+    percentage = json['percentage'];
+    employeeName = json['employee_name'];
   }
 }
