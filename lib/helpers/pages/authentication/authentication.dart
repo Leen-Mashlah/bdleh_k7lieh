@@ -4,9 +4,18 @@ import 'package:flutter_web_dashboard/routing/routes.dart';
 import 'package:flutter_web_dashboard/widgets/custom_text.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:http/http.dart'as http;
+import '../../../constants/api_constant.dart';
+import '../../../controllers/admin_login_controller.dart';
 
 class AuthenticationPage extends StatelessWidget {
-  const AuthenticationPage({Key? key}) : super(key: key);
+  
+
+  AdminLoginController adminAuth=Get.put(AdminLoginController());
+  TextEditingController email =TextEditingController();
+  TextEditingController password =TextEditingController();
+  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,7 +60,8 @@ class AuthenticationPage extends StatelessWidget {
                 height: 15,
               ),
               TextField(
-                decoration: InputDecoration(
+                controller:email ,
+                decoration: InputDecoration(                
                     labelText: "Email",
                     hintText: "abc@domain.com",
                     border: OutlineInputBorder(
@@ -61,6 +71,7 @@ class AuthenticationPage extends StatelessWidget {
                 height: 15,
               ),
               TextField(
+                controller: password,
                 obscureText: true,
                 decoration: InputDecoration(
                     labelText: "Password",
@@ -90,22 +101,32 @@ class AuthenticationPage extends StatelessWidget {
                 const SizedBox(
                 height: 15,
               ),
-              InkWell(
-                onTap: (){
-                  Get.offAllNamed(rootRoute);
-                },
-                child: Container(
-                  decoration: BoxDecoration(color: active, 
-                  borderRadius: BorderRadius.circular(20)),
-                  alignment: Alignment.center,
-                  width: double.maxFinite,
-                  padding: const EdgeInsets.symmetric(vertical: 16),
-                  child: const CustomText(
-                    text: "Login",
-                    color: Colors.white,
-                  ),
-                ),
-              ),
+              
+              Obx(() => InkWell(
+                    onTap: adminAuth.isLoading.value
+                        ? null
+                        : ()async {
+                            adminAuth.admin_login(email.text, password.text);
+                             Get.offNamed("Employees");
+
+                          },
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: active,
+                          borderRadius: BorderRadius.circular(20)),
+                      alignment: Alignment.center,
+                      width: double.maxFinite,
+                      padding: const EdgeInsets.symmetric(vertical: 16),
+                      child: adminAuth.isLoading.value
+                          ? CircularProgressIndicator(
+                              valueColor:
+                                  AlwaysStoppedAnimation<Color>(Colors.white))
+                          : const CustomText(
+                              text: "Login",
+                              color: Colors.white,
+                            ),
+                    ),
+                  )),
 
                const SizedBox(
                 height: 15,

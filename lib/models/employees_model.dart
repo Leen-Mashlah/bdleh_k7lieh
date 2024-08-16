@@ -24,18 +24,18 @@ class Employee {
   String? description = '';
   double? basicSalary = 0;
   Employee.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    firstName = json['first_name'];
-    lastName = json['last_name'];
-    email = json['email'];
-    phone = json['phone'];
-    employeeOfTheMonth = json['employee_of_the_month'];
-    salaryId = json['salary_id'];
-    userId = json['user_id'];
-    salary = json['salary'];
-    gradeId = json['grade_id'];
-    letter = json['letter'];
-    description = json['description'];
-    basicSalary = json['basic_salary'];
+    id = json['id'] ?? 0;
+    firstName = json['first_name'] ?? '';
+    lastName = json['last_name'] ?? '';
+    email = json['email'] ?? '';
+    phone = json['phone'] ?? '';
+    employeeOfTheMonth = json['employee_of_the_month'] ?? 0;
+    salaryId = json['salary_id'] ?? 0;
+    userId = json['user_id'] ?? 0;
+    salary = json['salary'] ?? 0;
+    gradeId = json['grade_id'] ?? 0;
+    letter = json['letter'] ?? '';
+    description = json['description'] ?? '';
+    basicSalary = json['basic_salary'] ?? 0;
   }
 }

@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_web_dashboard/constants/style.dart';
+import 'package:flutter_web_dashboard/controllers/employees_controller.dart';
 
-Widget Actionsbar(TextEditingController controller, BuildContext context) {
+Widget Actionsbar(EmployeesController controller, BuildContext context) {
   TextEditingController fnamecontroller = new TextEditingController();
   TextEditingController lnamecontroller = new TextEditingController();
   TextEditingController emailcontroller = new TextEditingController();
   TextEditingController rolecontroller = new TextEditingController();
-  TextEditingController gradecontroller = new TextEditingController(text: 'A');
+  TextEditingController gradecontroller = new TextEditingController();
   var screenSize = MediaQuery.of(context).size;
 
   return Padding(
@@ -87,10 +88,10 @@ Widget Actionsbar(TextEditingController controller, BuildContext context) {
                               ),
                               DropdownMenu(
                                 dropdownMenuEntries: [
-                                  DropdownMenuEntry(value: 'A', label: 'A'),
-                                  DropdownMenuEntry(value: 'B', label: 'B'),
-                                  DropdownMenuEntry(value: 'C', label: 'C'),
-                                  DropdownMenuEntry(value: 'D', label: 'D'),
+                                  DropdownMenuEntry(value: 1, label: 'A'),
+                                  DropdownMenuEntry(value: 2, label: 'B'),
+                                  DropdownMenuEntry(value: 3, label: 'C'),
+                                  DropdownMenuEntry(value: 4, label: 'D'),
                                 ],
                                 controller: gradecontroller,
                                 label: Text('Grade'),
@@ -100,6 +101,19 @@ Widget Actionsbar(TextEditingController controller, BuildContext context) {
                               ),
                               TextButton(
                                   onPressed: () {
+                                    controller.create_employee(
+                                        fnamecontroller.text,
+                                        lnamecontroller.text,
+                                        emailcontroller.text,
+                                        '254624521',
+                                        20,
+                                        5,
+                                        7,
+                                        656565,
+                                        int.parse(gradecontroller.text),
+                                        'A',
+                                        'Employee',
+                                        656565.5);
                                     Navigator.pop(context);
                                   },
                                   child: Text(
@@ -127,7 +141,6 @@ Widget Actionsbar(TextEditingController controller, BuildContext context) {
               //EdgeInsets.only(
               // left: screenSize.width * .3, right: screenSize.width * .3),
               child: TextField(
-                controller: controller,
                 keyboardType: TextInputType.number,
                 decoration: InputDecoration(
                   icon: Icon(

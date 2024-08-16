@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
             }),
         GetPage(
             name: authenticationPageRoute,
-            page: () => const AuthenticationPage()),
+            page: () =>  AuthenticationPage()),
       ],
       debugShowCheckedModeBanner: false,
       title: 'Dashboard',

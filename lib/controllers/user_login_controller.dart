@@ -28,6 +28,7 @@ class UserLoginController extends GetxController {
             },
             token: token)
         .then((value) {
+          print(value);
       if (value?.data['status'] == true) {
         userLoginModel = UserLoginModel.fromJson(value?.data);
       }

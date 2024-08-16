@@ -1,12 +1,17 @@
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_web_dashboard/constants/style.dart';
+import 'package:flutter_web_dashboard/controllers/employees_controller.dart';
+import 'package:flutter_web_dashboard/controllers/salary_increment_controller.dart';
 import 'package:flutter_web_dashboard/helpers/pages/Increment/components/components.dart';
 import 'package:flutter_web_dashboard/widgets/custom_text.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/instance_manager.dart';
 
 /// Example without datasource
 class IncrementTable extends StatelessWidget {
   IncrementTable({super.key});
+  SalaryIncrementController controller = Get.put(SalaryIncrementController());
 
   @override
   Widget build(BuildContext context) {

@@ -7,12 +7,34 @@ import 'package:flutter_web_dashboard/widgets/custom_text.dart';
 import 'package:flutter_web_dashboard/widgets/side_menu_item.dart';
 import 'package:get/get.dart';
 
-class SideMenu extends StatelessWidget {
-  const SideMenu({Key? key}) : super(key: key);
+import '../controllers/admin_login_controller.dart';
 
+class SideMenu extends StatelessWidget {
+ 
+  AdminLoginController rolescontroller=Get.put(AdminLoginController());
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
+
+    List<MenuItem> rolesItem;
+
+    if(rolescontroller.roles=='HR')
+    {
+      rolesItem=hrSideMenuItemRoutes;
+    }
+    
+    else if(rolescontroller.roles=='FM')
+    {
+        rolesItem=fmSideMenuItemRoutes;
+    }
+
+    else 
+    {
+      rolesItem=sideMenuItemRoutes;
+    }
+    
+
+    
 
     return Container(
       color: dark,
@@ -87,7 +109,7 @@ class SideMenu extends StatelessWidget {
           ),
           Column(
             mainAxisSize: MainAxisSize.min,
-            children: sideMenuItemRoutes
+            children: rolesItem
                 .map((item) => SideMenuItem(
                     itemName: item.name,
                     onTap: () {

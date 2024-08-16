@@ -57,3 +57,16 @@ List<MenuItem> sideMenuItemRoutes = [
   MenuItem(clientsPageDisplayName, clientsPageRoute),
   MenuItem(authenticationPageDisplayName, authenticationPageRoute),
 ];
+
+List<MenuItem> fmSideMenuItemRoutes = [
+  MenuItem(incrementPageDisplayName, incrementPageRoute),
+  MenuItem(gradesPageDisplayName, gradesPageRoute),
+  MenuItem(authenticationPageDisplayName, authenticationPageRoute),
+];
+
+List<MenuItem> hrSideMenuItemRoutes = [
+  MenuItem(employeesPageDisplayName, employeesPageRoute),
+  MenuItem(complaintsPageDisplayName, complaintsPageRoute),
+  MenuItem(aboutPageDisplayName, aboutPageRoute),
+  MenuItem(authenticationPageDisplayName, authenticationPageRoute),
+];
