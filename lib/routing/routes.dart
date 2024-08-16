@@ -15,6 +15,9 @@ const complaintsPageRoute = "/complaints";
 const incentivePageDisplayName = "Incentive";
 const incentivePageRoute = "/incentive";
 
+const incentiveShareDisplayName = "IncentiveShare";
+const incentiveShareRoute = "/incentiveshare";
+
 const conditionsPageDisplayName = "Conditions";
 const conditionsPageRoute = "/conditions";
 
