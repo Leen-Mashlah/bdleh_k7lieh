@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_web_dashboard/constants/components.dart';
 import 'package:flutter_web_dashboard/constants/style.dart';
+import 'package:flutter_web_dashboard/controllers/employees_controller.dart';
 import 'package:flutter_web_dashboard/controllers/salary_increment_controller.dart';
 
 import 'package:flutter_web_dashboard/helpers/reponsiveness.dart';
@@ -19,7 +20,9 @@ class IncrementPage extends StatelessWidget {
   //Scroll sc = Get.put(Scroll());
   ScrollController sc = ScrollController();
   List<int> emp_id = [];
+  List<bool> checked = [];
   SalaryIncrementController controller = Get.put(SalaryIncrementController());
+  EmployeesController emp_controller = Get.put(EmployeesController());
 
   @override
   Widget build(BuildContext context) {
@@ -57,12 +60,16 @@ class IncrementPage extends StatelessWidget {
                   SizedBox(
                     height: 10,
                   ),
-                  IncrementTable(emp_id),
+                  IncrementTable(emp_id, checked),
                 ],
               ),
             ),
             InkWell(
               onTap: () {
+                for (var i = 0; i < checked.length; i++) {
+                  if (checked[i])
+                    emp_id.add(emp_controller.employeesModel!.data[i].id!);
+                }
                 controller.create_salary_increment(
                     emp_id, int.parse(incrementController.text));
               },

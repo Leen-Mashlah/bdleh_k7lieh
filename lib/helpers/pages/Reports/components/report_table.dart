@@ -2,19 +2,16 @@ import 'package:buildcondition/buildcondition.dart';
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_web_dashboard/constants/style.dart';
-import 'package:flutter_web_dashboard/controllers/incentive_share_controller.dart';
-import 'package:flutter_web_dashboard/controllers/reports_f_controller.dart';
-import 'package:flutter_web_dashboard/controllers/salary_grades_controller.dart';
+import 'package:flutter_web_dashboard/controllers/reports_controller.dart';
 import 'package:flutter_web_dashboard/widgets/custom_text.dart';
 import 'package:get/get.dart';
-import 'package:get/instance_manager.dart';
 
 /// Example without datasource
 class ReportsTable extends StatelessWidget {
   //const
   ReportsTable({super.key});
 
-  ReportsFController controller = Get.put(ReportsFController());
+  ReportsController controller = Get.put(ReportsController());
 
   List<String> stuff = ['Finance', 'HR'];
 
@@ -24,10 +21,12 @@ class ReportsTable extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     controller.get_reports_f();
+    controller.get_reports_hr();
     return GetBuilder(
       init: controller,
       builder: (controller) => BuildCondition(
-        condition: controller.reportsFModel != null,
+        condition: controller.reportsFModel != null &&
+            controller.reportsHRModel != null,
         fallback: (context) => Center(child: CircularProgressIndicator()),
         builder: (context) => Container(
           decoration: BoxDecoration(
@@ -120,8 +119,21 @@ class ReportsTable extends StatelessWidget {
                                                 child: Row(
                                                   children: [
                                                     Text('Average Salary'),
-                                                    Text(
-                                                        'controller.reportsFModel.')
+                                                    Text(controller
+                                                        .reportsFModel!
+                                                        .average_salary
+                                                        .toString())
+                                                  ],
+                                                ),
+                                                width: screenSize.width * .5,
+                                              ),
+                                              SizedBox(
+                                                child: Row(
+                                                  children: [
+                                                    Text('Average Incentives'),
+                                                    Text(controller
+                                                        .reportsFModel!
+                                                        .average_incentives!)
                                                   ],
                                                 ),
                                                 width: screenSize.width * .5,
@@ -161,21 +173,77 @@ class ReportsTable extends StatelessWidget {
                                                 MainAxisAlignment.spaceBetween,
                                             children: [
                                               Text(
-                                                'Complaint Details',
+                                                'HR Report',
                                                 style: TextStyle(fontSize: 25),
                                               ),
                                               SizedBox(
-                                                child: Text(
-                                                    'lorem ipsum dolor sit amet, consectetur lorem   lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum d Lorem ipsum d Lorem ipsum d Lorem ips    lorem ipsum d Lorem ipsum d Lorem lorem ipsum d Lorem ipsum d Lorem ips lorem ipsum d Lorem ipsum d Lorem ips'),
-                                                // child: TextField(
-                                                //   controller:
-                                                //       emp_fname_controller,
-                                                //   decoration: InputDecoration(
-                                                //     label: Text(
-                                                //       'First Name',
-                                                //     ),
-                                                //   ),
-                                                // ),
+                                                child: Row(
+                                                  children: [
+                                                    Text(
+                                                        'Top 3 Employees of the Month'),
+                                                    Column(
+                                                      children: [
+                                                        Text(controller
+                                                                .reportsHRModel!
+                                                                .topThreeEmployeeOfTheMonth[
+                                                                    0]
+                                                                .employeeName +
+                                                            '  ' +
+                                                            controller
+                                                                .reportsHRModel!
+                                                                .topThreeEmployeeOfTheMonth[
+                                                                    0]
+                                                                .employeeOfTheMonth
+                                                                .toString()),
+                                                        Text(controller
+                                                                .reportsHRModel!
+                                                                .topThreeEmployeeOfTheMonth[
+                                                                    1]
+                                                                .employeeName +
+                                                            '  ' +
+                                                            controller
+                                                                .reportsHRModel!
+                                                                .topThreeEmployeeOfTheMonth[
+                                                                    1]
+                                                                .employeeOfTheMonth
+                                                                .toString()),
+                                                        Text(controller
+                                                                .reportsHRModel!
+                                                                .topThreeEmployeeOfTheMonth[
+                                                                    2]
+                                                                .employeeName +
+                                                            '  ' +
+                                                            controller
+                                                                .reportsHRModel!
+                                                                .topThreeEmployeeOfTheMonth[
+                                                                    2]
+                                                                .employeeOfTheMonth
+                                                                .toString()),
+                                                      ],
+                                                    ),
+                                                  ],
+                                                ),
+                                                width: screenSize.width * .5,
+                                              ),
+                                              SizedBox(
+                                                child: Row(
+                                                  children: [
+                                                    Text(
+                                                        'Max Employee Salary: '),
+                                                    Text(controller
+                                                            .reportsHRModel!
+                                                            .maxEmployeeSalary[
+                                                                0]
+                                                            .employeeName +
+                                                        '   ' +
+                                                        controller
+                                                            .reportsHRModel!
+                                                            .maxEmployeeSalary[
+                                                                0]
+                                                            .maxSalary
+                                                            .toString())
+                                                  ],
+                                                ),
                                                 width: screenSize.width * .5,
                                               ),
                                               TextButton(
@@ -196,7 +264,7 @@ class ReportsTable extends StatelessWidget {
                                 );
                               }
                             },
-                            child: Text('🙈'),
+                            child: Text('View 🙈'),
                           ))),
                         ]),
                       )))

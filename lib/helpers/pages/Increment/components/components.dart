@@ -1,7 +1,5 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_web_dashboard/constants/components.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_web_dashboard/constants/style.dart';
 import 'package:get/get.dart';
 
@@ -16,6 +14,9 @@ Widget Actionsbar(TextEditingController controller, BuildContext context) {
       child: TextField(
         controller: controller,
         keyboardType: TextInputType.number,
+        inputFormatters: <TextInputFormatter>[
+          FilteringTextInputFormatter.digitsOnly,
+        ],
         decoration: InputDecoration(
           icon: Icon(Icons.percent),
           label: Text('Increment Percentage'),

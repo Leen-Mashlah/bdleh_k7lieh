@@ -1,11 +1,14 @@
 class ReportsFModel {
-  bool? status;
-  String? message;
-  Data? data;
+  double? average_salary;
+  String? average_incentives;
+  List<Data> data = [];
 
-  ReportsFModel.fromJson(Map<String, dynamic> response) {
-    message = response['message'];
-    data = response['data'] != null ? Data.fromJson(response['data']) : null;
+  ReportsFModel.fromJson(Map<String, dynamic> json) {
+    average_salary = json['average_salary'];
+    average_salary = json['average_incentives'];
+    json['data'].forEach((element) {
+      data.add(Data.fromJson(element));
+    });
   }
 }
 

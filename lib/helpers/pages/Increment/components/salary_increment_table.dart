@@ -11,8 +11,9 @@ import 'package:get/instance_manager.dart';
 
 /// Example without datasource
 class IncrementTable extends StatelessWidget {
-  IncrementTable(List<int> emp_id, {super.key}) {
+  IncrementTable(List<int> emp_id, List<bool> checked, {super.key}) {
     this.emp_id = emp_id;
+    this.checked = checked;
   }
   SalaryIncrementController controller = Get.put(SalaryIncrementController());
   EmployeesController emp_controller = Get.put(EmployeesController());
@@ -118,6 +119,7 @@ class IncrementTable extends StatelessWidget {
                               width: 100,
                             ),
                             statefull(checked![index]),
+                            
                           ],
                         ),
                       ))),
