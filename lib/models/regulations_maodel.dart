@@ -17,15 +17,10 @@ class Data {
   DateTime? createdAt;
   DateTime? updatedAt;
   Data.fromJson(Map<String, dynamic> json) {
-    id:
-    json['id'];
-    name:
-    json['name'];
-    points:
-    (json['points'] as num).toDouble(); // Convert to double
-    createdAt:
-    DateTime.parse(json['created_at']);
-    updatedAt:
-    DateTime.parse(json['updated_at']);
+    id = json['id'];
+    name = json['name'];
+    points = (json['points'] as num).toDouble(); // Convert to double
+    createdAt = DateTime.parse(json['created_at']);
+    updatedAt = DateTime.parse(json['updated_at']);
   }
 }

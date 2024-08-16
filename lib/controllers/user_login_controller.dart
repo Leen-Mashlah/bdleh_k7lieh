@@ -1,6 +1,5 @@
 import 'package:flutter_web_dashboard/helpers/CacheHelper.dart';
 import 'package:flutter_web_dashboard/helpers/dio.dart';
-import 'package:flutter_web_dashboard/models/admin_login_model.dart';
 import 'package:flutter_web_dashboard/models/login_model.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 

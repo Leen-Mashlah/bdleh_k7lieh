@@ -4,11 +4,6 @@ import 'package:flutter_web_dashboard/constants/components.dart';
 import 'package:flutter_web_dashboard/helpers/reponsiveness.dart';
 import 'package:flutter_web_dashboard/helpers/pages/Complaints/components/complaints_table.dart';
 
-
-import 'package:get/get.dart';
-
-import '../../../controllers/api_controller/complaints-api.dart';
-
 // ignore: must_be_immutable
 class ComplaintsPage extends StatelessWidget {
   ComplaintsPage({super.key});

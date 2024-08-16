@@ -20,19 +20,19 @@ class Data {
   String? token;
 
   Data.fromJson(Map<String, dynamic> json) {
-    id:
+    id=
     json['id'];
-    name:
+    name=
     json['name'];
-    email:
+    email=
     json['email'];
-    emailVerifiedAt:
+    emailVerifiedAt=
     DateTime.parse(json['email_verified_at']);
-    createdAt:
+    createdAt=
     DateTime.parse(json['created_at']);
-    updatedAt:
+    updatedAt=
     DateTime.parse(json['updated_at']);
-    token:
+    token=
     json['token'];
   }
 }

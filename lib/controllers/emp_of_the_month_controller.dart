@@ -1,7 +1,6 @@
 import 'package:flutter_web_dashboard/helpers/CacheHelper.dart';
 import 'package:flutter_web_dashboard/helpers/dio.dart';
 import 'package:flutter_web_dashboard/models/emp_of_the_m_model.dart';
-import 'package:flutter_web_dashboard/models/regulations_maodel.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 
 class EmpOfTheMonthController extends GetxController {

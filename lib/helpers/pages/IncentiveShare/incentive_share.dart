@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_web_dashboard/constants/components.dart';
-import 'package:flutter_web_dashboard/constants/style.dart';
 import 'package:flutter_web_dashboard/helpers/pages/IncentiveShare/components/incentive_share_table.dart';
 import 'package:flutter_web_dashboard/helpers/reponsiveness.dart';
-import 'package:flutter_web_dashboard/helpers/pages/Grades/components/grades_table.dart';
 
 // ignore: must_be_immutable
 class IncentivesShare extends StatelessWidget {

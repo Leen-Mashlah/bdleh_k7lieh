@@ -5,7 +5,6 @@ import 'package:flutter_web_dashboard/helpers/pages/Employees/components/compone
 
 import 'package:flutter_web_dashboard/helpers/reponsiveness.dart';
 import 'package:flutter_web_dashboard/helpers/pages/Employees/components/employees_table.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:get/instance_manager.dart';
 
 // ignore: must_be_immutable

@@ -6,8 +6,6 @@ import 'package:flutter_web_dashboard/controllers/salary_increment_controller.da
 import 'package:flutter_web_dashboard/helpers/pages/Increment/components/components.dart';
 import 'package:flutter_web_dashboard/widgets/custom_text.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/instance_manager.dart';
 
 /// Example without datasource
 class IncrementTable extends StatelessWidget {

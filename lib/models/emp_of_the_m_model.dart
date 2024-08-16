@@ -22,25 +22,15 @@ class Data {
   DateTime? createdAt;
   DateTime? updatedAt;
   Data.fromJson(Map<String, dynamic> json) {
-    id:
-    json['id'];
-    firstName:
-    json['first_name'];
-    lastName:
-    json['last_name'];
-    email:
-    json['email'];
-    phone:
-    json['phone'];
-    employeeOfTheMonth:
-    json['employee_of_the_month'];
-    salaryId:
-    json['salary_id'];
-    userId:
-    json['user_id'];
-    createdAt:
-    DateTime.parse(json['created_at']);
-    updatedAt:
-    DateTime.parse(json['updated_at']);
+    id = json['id'];
+    firstName = json['first_name'];
+    lastName = json['last_name'];
+    email = json['email'];
+    phone = json['phone'];
+    employeeOfTheMonth = json['employee_of_the_month'];
+    salaryId = json['salary_id'];
+    userId = json['user_id'];
+    createdAt = DateTime.parse(json['created_at']);
+    updatedAt = DateTime.parse(json['updated_at']);
   }
 }

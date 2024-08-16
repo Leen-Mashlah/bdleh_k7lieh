@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_web_dashboard/helpers/pages/Complaints/complaints.dart';
-import 'package:flutter_web_dashboard/helpers/pages/Conditions/components/conditions_table.dart';
 import 'package:flutter_web_dashboard/helpers/pages/Conditions/conditions.dart';
 import 'package:flutter_web_dashboard/helpers/pages/Employees/employees.dart';
 import 'package:flutter_web_dashboard/helpers/pages/Files/files.dart';

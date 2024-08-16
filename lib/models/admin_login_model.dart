@@ -22,23 +22,14 @@ class Data {
   String? token;
 
   Data.fromJson(Map<String, dynamic> json) {
-    id:
-    json['id'];
-    name:
-    json['name'];
-    email:
-    json['email'];
-    emailVerifiedAt:
-    DateTime.parse(json['email_verified_at']);
-    createdAt:
-    DateTime.parse(json['created_at']);
-    updatedAt:
-    DateTime.parse(json['updated_at']);
-    roles:
-    List<String>.from(json['roles']);
-    permissions:
-    List<String>.from(json['permissions']);
-    token:
-    json['token'];
+    id = json['id'];
+    name = json['name'];
+    email = json['email'];
+    emailVerifiedAt = DateTime.parse(json['email_verified_at']);
+    createdAt = DateTime.parse(json['created_at']);
+    updatedAt = DateTime.parse(json['updated_at']);
+    roles = List<String>.from(json['roles']);
+    permissions = List<String>.from(json['permissions']);
+    token = json['token'];
   }
 }
