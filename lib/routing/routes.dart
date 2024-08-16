@@ -21,6 +21,9 @@ const incentiveShareRoute = "/incentiveshare";
 const conditionsPageDisplayName = "Conditions";
 const conditionsPageRoute = "/conditions";
 
+const reportsPageDisplayName = "ٌReports";
+const reportsPageRoute = "/reports";
+
 const filesPageDisplayName = "Files";
 const filesPageRoute = "/files";
 
@@ -54,11 +57,12 @@ List<MenuItem> sideMenuItemRoutes = [
   MenuItem(incentivePageDisplayName, incentivePageRoute),
   MenuItem(incentiveShareDisplayName, incentiveShareRoute),
   MenuItem(conditionsPageDisplayName, conditionsPageRoute),
+  MenuItem(reportsPageDisplayName, reportsPageRoute),
   MenuItem(filesPageDisplayName, filesPageRoute),
   MenuItem(aboutPageDisplayName, aboutPageRoute),
-  MenuItem(overviewPageDisplayName, overviewPageRoute),
-  MenuItem(driversPageDisplayName, driversPageRoute),
-  MenuItem(clientsPageDisplayName, clientsPageRoute),
+  // MenuItem(overviewPageDisplayName, overviewPageRoute),
+  // MenuItem(driversPageDisplayName, driversPageRoute),
+  // MenuItem(clientsPageDisplayName, clientsPageRoute),
   MenuItem(authenticationPageDisplayName, authenticationPageRoute),
 ];
 

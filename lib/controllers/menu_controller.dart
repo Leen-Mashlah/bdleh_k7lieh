@@ -38,6 +38,8 @@ class MenuController extends GetxController {
         return _customIcon(CupertinoIcons.chart_pie_fill, itemName);
       case conditionsPageDisplayName:
         return _customIcon(Icons.format_list_numbered_rounded, itemName);
+      case reportsPageDisplayName:
+        return _customIcon(Icons.data_thresholding_outlined, itemName);
       case filesPageDisplayName:
         return _customIcon(Icons.file_copy_rounded, itemName);
       case aboutPageDisplayName:
